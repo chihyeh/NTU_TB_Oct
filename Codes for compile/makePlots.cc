@@ -254,10 +254,12 @@ void makePlots::Loop(){
     // Event Selection
     //if ( Nhits < 200 ) continue;
     //if ( dwcReferenceType != 15) continue;
-
+      if(b_x > -2 and b_x < 2 and b_y > -1 and b_y < 2 and trackChi2_X < 5 and trackChi2_X < 5)
+      {
       h_Erec_CEE->Fill(totalE_CEE);
       h_Erec_CEH->Fill(totalE_CEH);
-
+      }
+      cout << "ok!" << endl;
     for(int iL = 0; iL < 1 ; ++iL){
       //Fill shower shape histogram
       //If one wants to do sth with hits
@@ -277,6 +279,7 @@ void makePlots::Loop(){
       SHD_Elayer += X0_layer[iL]*layerE[iL];}
     SHD_Elayer /= totalE;
     // shower depth = SHD_Elayer (calculation done!)
+      break;
   }
   outf.Write();
   outf.Close();
